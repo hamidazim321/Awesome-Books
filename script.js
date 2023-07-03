@@ -1,3 +1,5 @@
+let BooksList = []
+
 const shelfHTML = `
 <p class="Name"></p>
 <p class="Author"></p>
@@ -17,6 +19,13 @@ function Add() {
   Name.textContent = form.Name.value;
   Author.textContent = form.Author.value;
 
+  let Book = {
+    Name: Name.textContent,
+    Author: Author.textContent
+  }
+
+  BooksList.push(Book)
+
   const Remove = shelf.querySelector('button');
   Remove.addEventListener('click', (event) => {
     const parent = event.target.parentNode;
@@ -26,7 +35,13 @@ function Add() {
 }
 
 const btn = form.querySelector('button');
-btn.addEventListener('click', () => { Add(); });
+btn.addEventListener('click', () => { 
+  Add()
+  updateStorage() 
+ });
+
+
+
 function storageAvailable(type) {
   let storage;
   try {
@@ -55,19 +70,15 @@ function storageAvailable(type) {
 }
 
 function setData() {
-  const StoredForm = JSON.parse(localStorage.getItem('formData'));
-  Form.Full_name.value = StoredForm.name;
-  Form.email.value = StoredForm.email;
-  Form.msg.value = StoredForm.message;
+  const StoredBooks = JSON.parse(localStorage.getItem('Books'));
+  // form.Name = StoredForm.name;
+  // Form.Author = StoredForm.Author;
+  console.log(StoredBooks)
 }
 
 function populateStorage() {
-  localStorage.setItem('formData', JSON.stringify(
-    {
-      name: Form.Full_name.value,
-      email: Form.email.value,
-      message: Form.msg.value,
-    },
+  localStorage.setItem('Books', JSON.stringify(
+    BooksList
   ));
   setData();
 }
@@ -82,8 +93,8 @@ function updateStorage() {
   }
 }
 
-function UpdateForm() {
-  Form.Full_name.onchange = populateStorage;
-  Form.email.onchange = populateStorage;
-  Form.msg.onchange = populateStorage;
-}
+// function UpdateForm() {
+//   Form.Full_name.onchange = populateStorage;
+//   Form.email.onchange = populateStorage;
+//   Form.msg.onchange = populateStorage;
+// }
