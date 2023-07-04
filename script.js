@@ -4,8 +4,13 @@ function renderBookList() {
   bookList.innerHTML = '';
   const reversedBooks = books.slice().reverse();
   reversedBooks.forEach((book) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${book.title} by ${book.author}`;
+    let shelf = document.createElement('div')
+    let name = document.createElement('p')
+    let author = document.createElement('p')
+    name.textContent = book.title
+    author.textContent = book.author
+    shelf.appendChild(name)
+    shelf.appendChild(author)
 
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
@@ -15,8 +20,9 @@ function renderBookList() {
       renderBookList();
     });
 
-    listItem.appendChild(removeButton);
-    bookList.appendChild(listItem);
+    shelf.appendChild(removeButton);
+    shelf.appendChild(document.createElement('hr'))
+    bookList.appendChild(shelf);
   });
 }
 
