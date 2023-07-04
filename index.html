@@ -6,18 +6,14 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Awesome books</h1>
-  <div class="main">
-    <div class="container">
-    </div>
-    <div class="toggle">
-      <form>
-        <input type="text" name="Name" id="Name" placeholder="Title"> <br>
-        <input type="text" name="Author" id="Author" placeholder="Author"><br>
-        <button type="button">Add</button>
-      </form>
-    </div>
-  </div>
+  <h1>Book Collection</h1>
+  <section id="bookList"></section>
+
+  <form id="addForm">
+    <input type="text" id="titleInput" placeholder="Title" required> <br>
+    <input type="text" id="authorInput" placeholder="Author" required> <br>
+    <button type="submit">Add</button>
+  </form>
 
   <script src="script.js"></script>
 </body>
