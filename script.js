@@ -33,10 +33,10 @@ class BookManager {
     for (let i = 0; i < books.length; i += 1) {
       const { title, author } = books[i];
       bookListHTML += `
-      <div class="book-list">
+      <li class="book-list">
         <p>"${title}" by "${author}"</p>
         <button onClick="BookManager.removeBook(${i})">Remove</button>
-      </div>
+      </li>
       `;
     }
     return bookListHTML;

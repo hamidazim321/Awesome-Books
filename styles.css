@@ -20,7 +20,7 @@ h2.heading {
   font-size: 0.8rem;
   width: 300px;
   margin: 0;
-  padding: 0;
+  padding: 0 2px;
 }
 
 .book-list button {
