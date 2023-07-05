@@ -1,48 +1,67 @@
-let books = JSON.parse(localStorage.getItem('books')) || [];
-function renderBookList() {
-  const bookList = document.getElementById('bookList');
-  bookList.innerHTML = '';
-  const reversedBooks = books.slice().reverse();
-  reversedBooks.forEach((book) => {
-    const shelf = document.createElement('div');
-    const name = document.createElement('p');
-    const author = document.createElement('p');
-    name.textContent = book.title;
-    author.textContent = book.author;
-    shelf.appendChild(name);
-    shelf.appendChild(author);
+class BookManager {
+  static getStoredBooks() {
+    if (localStorage.getItem('AddedBooks') === null) {
+      localStorage.setItem('AddedBooks', JSON.stringify([]));
+    }
+    return JSON.parse(localStorage.getItem('AddedBooks'));
+  }
 
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', () => {
-      books = books.filter((b) => b !== book);
-      localStorage.setItem('books', JSON.stringify(books));
-      renderBookList();
-    });
+  static updateStoredBooks(books) {
+    localStorage.setItem('AddedBooks', JSON.stringify(books));
+  }
 
-    shelf.appendChild(removeButton);
-    shelf.appendChild(document.createElement('hr'));
-    bookList.appendChild(shelf);
-  });
+  static addNewBook(bookTitle, bookAuthor) {
+    const storedBooks = BookManager.getStoredBooks();
+    const newBook = {
+      title: bookTitle,
+      author: bookAuthor,
+    };
+    storedBooks.push(newBook);
+    BookManager.updateStoredBooks(storedBooks);
+    BookManager.displayBooks(storedBooks);
+  }
+
+  static removeBook(i) {
+    const storedBooks = BookManager.getStoredBooks();
+    storedBooks.splice(i, 1);
+    BookManager.updateStoredBooks(storedBooks);
+    BookManager.displayBooks();
+  }
+
+  static createBookListHTML(books) {
+    let bookListHTML = '';
+    for (let i = 0; i < books.length; i += 1) {
+      const { title, author } = books[i];
+      bookListHTML += `
+      <li class="book-list">
+        <p>"${title}" by "${author}"</p>
+        <button onClick="BookManager.removeBook(${i})">Remove</button>
+      </li>
+      `;
+    }
+    return bookListHTML;
+  }
+
+  static displayBooks() {
+    const bookContainer = document.querySelector('.book-container');
+    const storedBooks = BookManager.getStoredBooks();
+    const bookListHTML = BookManager.createBookListHTML(storedBooks);
+    bookContainer.innerHTML = `
+      <ul class="book-ul">${bookListHTML}</ul>
+    `;
+  }
 }
 
-function addBook(title, author) {
-  const newBook = { title, author };
-  books.push(newBook);
-  localStorage.setItem('books', JSON.stringify(books));
-  renderBookList();
-}
-
-const addForm = document.getElementById('addForm');
-addForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const titleInput = document.getElementById('titleInput');
-  const authorInput = document.getElementById('authorInput');
-  const title = titleInput.value;
-  const author = authorInput.value;
-  addBook(title, author);
-  titleInput.value = '';
-  authorInput.value = '';
+const bookForm = document.querySelector('.book-form');
+bookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const bookTitleInput = document.querySelector('.book-title');
+  const bookAuthorInput = document.querySelector('.book-author');
+  const bookTitle = bookTitleInput.value;
+  const bookAuthor = bookAuthorInput.value;
+  BookManager.addNewBook(bookTitle, bookAuthor);
+  bookTitleInput.value = '';
+  bookAuthorInput.value = '';
 });
 
-renderBookList();
+BookManager.displayBooks();
