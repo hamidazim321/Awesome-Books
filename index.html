@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Awesome Books</title>
 </head>
 <body>
-  <h1>Book Collection</h1>
-  <section id="bookList"></section>
+    <div class="container-home">
+    <h1 class="heading">Awesome Books</h1>
+    <!-- Container for the loaded books -->
+    <div class="book-container">
 
-  <form id="addForm">
-    <input type="text" id="titleInput" placeholder="Title" required> <br>
-    <input type="text" id="authorInput" placeholder="Author" required> <br>
-    <button type="submit">Add</button>
-  </form>
-
-  <script src="script.js"></script>
+    </div>
+    <hr class="line1">
+    <!-- Form -->
+    <h2 class="heading">Add a new book</h2>
+    <form class="book-form">
+        <input type="text" placeholder="Title" class="book-title"><br>
+        <input type="text" placeholder="Author" class="book-author"><br>
+        <button type="submit" class="btn-submit">Add</button>
+    </form>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

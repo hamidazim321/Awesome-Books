@@ -20,7 +20,6 @@ class BookManager {
     BookManager.updateStoredBooks(storedBooks);
     BookManager.displayBooks(storedBooks);
   }
-}
 
   static removeBook(i) {
     const storedBooks = BookManager.getStoredBooks();
