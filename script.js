@@ -65,3 +65,25 @@ bookForm.addEventListener('submit', (e) => {
 });
 
 BookManager.displayBooks();
+function updateDom(){
+  let nav = document.querySelector('.nav-items')
+  let items = nav.querySelectorAll('li a')
+  let targets = document.querySelectorAll('.Main')
+  items.forEach(item =>{
+    item.addEventListener('click',()=>{
+      targets.forEach(elm => {
+        elm.style.display = 'none'
+      })
+      target = item.getAttribute('data-target')
+      targetElm = document.querySelector(target)
+      targetElm.style.display = 'flex'
+      items.forEach(li =>{
+        li.style.color = 'black'
+      })
+      item.style.color = 'blue'
+    })
+  })
+}
+
+
+updateDom()
