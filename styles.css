@@ -1,9 +1,11 @@
 * {
   box-sizing: border-box;
 }
+
 h1 {
   font-size: 32px;
 }
+
 body {
   height: 100vh;
   margin: 0;
@@ -58,7 +60,6 @@ h2.heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
   margin: 0;
   padding: 0 2%;
   font-size: medium;
@@ -129,15 +130,14 @@ h2.heading {
   border: solid 2px;
   padding: 0;
   width: 100%;
-  padding: 0;
 }
 
 #contacts {
   padding-bottom: 5%;
   display: none;
   justify-content: center;
-
 }
+
 .info {
   display: flex;
   flex-direction: column;
