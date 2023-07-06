@@ -33,3 +33,132 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.nav-items li a {
+  font-size: medium;
+  font-weight: 600;
+  border-right: solid 1px;
+  padding: 0 5px;
+  text-decoration: none;
+  color: black;
+}
+
+hr.line1 {
+  border-top: 1px solid black;
+  width: 10%;
+  margin: 20px auto;
+}
+
+h1.heading,
+h2.heading {
+  text-align: center;
+}
+
+.book-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0 2%;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.book-list button {
+  border: solid 2px;
+}
+
+#container-home {
+  margin-bottom: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#Add-Book {
+  display: none;
+  flex-direction: column;
+  margin-top: 5%;
+  align-items: center;
+  font-size: larger;
+  padding-bottom: 3%;
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  gap: 3%;
+  margin-top: 5%;
+}
+
+.book-form input {
+  width: 100%;
+  border: solid 2px;
+  font-size: large;
+}
+
+.book-form button {
+  margin-left: auto;
+}
+
+.btn-submit {
+  width: 50px;
+  height: 25px;
+  margin-top: 10px;
+  border: solid 2px;
+}
+
+.book-list:nth-child(even) {
+  background-color: silver;
+}
+
+.book-list:nth-child(odd) {
+  background-color: white;
+}
+
+.book-ul {
+  border: solid 2px;
+  padding: 0;
+  width: 100%;
+  padding: 0;
+}
+
+#contacts {
+  padding-bottom: 5%;
+  display: none;
+  justify-content: center;
+
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+footer {
+  border: solid 4px;
+  padding: 0 1%;
+  font-size: large;
+  font-family: sans-serif;
+  position: fixed;
+  bottom: 0;
+  width: 98%;
+  margin-top: 3%;
+}
+
+footer p {
+  margin: 1% 0;
+  padding: 0;
+}

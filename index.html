@@ -11,27 +11,46 @@
   <nav id="Navbar">
     <p class="Nav-brand">Awesome Books</p>
     <ul class="nav-items">
-      <li><a href="#">List</a></li>
-      <li><a href="#">Add new</a></li>
-      <li><a href="#">Contacts</a></li>
+      <li><a href="#" data-target = '#container-home'>List</a></li>
+      <li><a href="#" data-target = '#Add-Book'>Add new</a></li>
+      <li><a href="#" data-target = '#contacts'>Contacts</a></li>
     </ul>
   </nav>
   
-  <div class="container-home">
-  <h1 class="heading">Awesome Books</h1>
+  <div id="container-home" class="Main">
+  <h1 class="heading">All Awesome Books</h1>
   <!-- Container for the loaded books -->
   <div class="book-container">
 
   </div>
-  <hr class="line1">
-  <!-- Form -->
-  <h2 class="heading">Add a new book</h2>
-  <form class="book-form">
-    <input type="text" placeholder="Title" class="book-title"><br>
-    <input type="text" placeholder="Author" class="book-author"><br>
-    <button type="submit" class="btn-submit">Add</button>
-  </form>
   </div>
+  <!-- Form -->
+  <section id="Add-Book" class="Main">
+    <h1 class="heading">Add a new book</h1>
+    <form class="book-form">
+      <input type="text" placeholder="Title" class="book-title"><br>
+      <input type="text" placeholder="Author" class="book-author"><br>
+      <button type="submit" class="btn-submit">Add</button>
+    </form>
+  </section>
+
+  <section id="contacts" class="Main">
+    <div class="info">
+      <h1>Contact Information</h1>
+      <p>Do have any questios or you just want to say "Hello"? <br>
+        You can reach out to us!
+      </p>
+      <ul>
+        <li>Our e-mail: Mail@gmail.com</li>
+        <li>Our phone number: 23465836756</li>
+        <li>Our address: Streetname 22, 84503 City, Country</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Copyright Hamid And Suleiman</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
