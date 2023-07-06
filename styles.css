@@ -2,6 +2,39 @@ body {
   margin: auto;
 }
 
+#Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid;
+  padding: 5px 10px;
+}
+
+.Nav-brand {
+  font-weight: bolder;
+  font-style: normal;
+  font-size: large;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-items {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-items li a {
+  font-size: medium;
+  font-weight: 600;
+  border-right: solid 1px;
+  padding: 0 5px;
+  text-decoration: none;
+  color: black;
+}
+
 hr.line1 {
   border-top: 1px solid black;
   width: 10%;
