@@ -96,7 +96,7 @@ Example commands:
 Install this project with:
 
   cd my-project
-  gem install
+  npm install
 
 
 ### Usage
